@@ -23,7 +23,7 @@ for seconds in measure:
 
 # play a timed sequence, playing a sound
 # load an audioFiles, create an sample object
-sample_pop = sa.WaveObject.from_wave_file("Pop.wav")
+sample_pop = sa.WaveObject.from_wave_file("./assets/Pop.wav")
 for seconds in measure:
     sample_pop.play()
     time.sleep(seconds)
