@@ -2,7 +2,7 @@
 
 * Oscillator class, with the field frequency and Constructor
 * explain access specifiers: frequency field
-* explain initialization list
+* explain initialiser list
 * Constructor Delegation
 * Destructor
 

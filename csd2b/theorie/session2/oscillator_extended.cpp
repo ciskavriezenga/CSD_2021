@@ -15,6 +15,8 @@
 // protected, private: door het object zelf te gebruiken
 
 
+static int oscCount = 0;
+
 class Oscillator {
 //access specifier
 public:
@@ -33,15 +35,17 @@ protected:
 Oscillator::Oscillator () : Oscillator(220)
 {}
 
-// initialisation list
+// initialiser list
 Oscillator::Oscillator(float freq) : freq(freq) {
   std::cout << "Oscillator - constructor Oscillator(float freq)\n";
+  oscCount++;
 }
 
 
 Oscillator::~Oscillator()
 {
   std::cout << "Oscillator - destructor\n";
+  oscCount--;
 }
 
 void Oscillator::setFreq(float freq)
@@ -62,10 +66,14 @@ float Oscillator::getFreq()
 
 int main ()
 {
-  Oscillator osc;
-  //osc.setFreq(0);
-  std::cout << "Freq field contains the value: " << osc.getFreq() << "\n";
-
+  std::cout << "oscCount: " << oscCount << "\n";
+  {
+    Oscillator osc1;
+    std::cout << "oscCount: " << oscCount << "\n";
+  }
+  std::cout << "oscCount: " << oscCount << "\n";
+  Oscillator osc2;
+  std::cout << "oscCount: " << oscCount << "\n";
 
   return 0;
 }
