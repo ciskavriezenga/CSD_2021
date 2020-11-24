@@ -19,6 +19,7 @@ class Oscillator {
 //access specifier
 public:
   Oscillator();
+  Oscillator(float freq);
   ~Oscillator();
   void setFreq(float freq);
   float getFreq();
@@ -28,11 +29,15 @@ protected:
   float freq;
 };
 
+// constructor delegation
+Oscillator::Oscillator () : Oscillator(220)
+{}
 
-Oscillator::Oscillator()
-{
-  std::cout << "Oscillator - constructor\n";
+// initialisation list
+Oscillator::Oscillator(float freq) : freq(freq) {
+  std::cout << "Oscillator - constructor Oscillator(float freq)\n";
 }
+
 
 Oscillator::~Oscillator()
 {
@@ -57,9 +62,8 @@ float Oscillator::getFreq()
 
 int main ()
 {
-
   Oscillator osc;
-  osc.setFreq(0);
+  //osc.setFreq(0);
   std::cout << "Freq field contains the value: " << osc.getFreq() << "\n";
 
 
