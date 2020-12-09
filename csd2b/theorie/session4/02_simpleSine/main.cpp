@@ -11,7 +11,7 @@
  * jackd -d coreaudio
  */
 
-#define PI_2 6.28318530717959
+
 
 int main(int argc,char **argv)
 {
@@ -26,13 +26,13 @@ int main(int argc,char **argv)
   jack.onProcess = [samplerate](jack_default_audio_sample_t *inBuf,
      jack_default_audio_sample_t *outBuf, jack_nframes_t nframes) {
 
-    static float phase = 0;
+    static double phase = 0;
     static float amplitude = 0.5;
-    static float frequency = 880;
+    static double frequency = 880;
 
     for(unsigned int i = 0; i < nframes; i++) {
-      outBuf[i] = amplitude * sin(phase * PI_2 );
-      phase += frequency / samplerate;
+      outBuf[i] = amplitude * sin(phase);
+      phase += 2 * M_PI * frequency / samplerate;
     }
 
     return 0;
@@ -41,7 +41,7 @@ int main(int argc,char **argv)
   jack.autoConnect();
 
   //keep the program running and listen for user input, q = quit
-  std::cout << "\n\nPress 'q' when you want to quit the program.\n";
+  std::cout << "\n\nPress 'q' ENTER when you want to quit the program.\n";
   bool running = true;
   while (running)
   {
