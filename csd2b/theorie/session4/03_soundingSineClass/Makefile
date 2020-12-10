@@ -1,15 +1,13 @@
-CC = g++
-CFLAGS = -I/usr/local/include -Wall -std=c++1z
-LDFLAGS= -ljack
+CXX = g++
+CXXFLAGS = -Ic:/Program\ Files/JACK2/include -Wall -std=c++1z
+LDFLAGS= -Lc:/Program\ Files/JACK2/lib32 -llibjack
+SOURCE= main.o jack_module.o sine.o
 
-all: example
-
-example : jack_module.o sine.o main.o
-	$(CC) -o $@ $(CFLAGS) jack_module.o sine.o main.o $(LDFLAGS)
+example: $(SOURCE)
+	$(CXX) -o $@ $(CXXFLAGS) $(SOURCE) $(LDFLAGS)
 
 .cpp.o:
-	$(CC) -c $< $(CFLAGS)
+	$(CXX) -c $(CXXFLAGS) $<
 
 clean:
-	rm -f *.o
-	rm -f example
+	rm -f example *.o

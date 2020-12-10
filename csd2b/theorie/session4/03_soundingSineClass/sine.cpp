@@ -1,5 +1,6 @@
+#define _USE_MATH_DEFINES
 #include "sine.h"
-#include "math.h"
+#include <math.h>
 
 Sine::Sine(float frequency, double samplerate) : frequency(frequency),
   samplerate(samplerate), amplitude(1.0), sample(0), phase(0)

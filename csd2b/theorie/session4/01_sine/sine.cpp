@@ -1,5 +1,6 @@
+#define _USE_MATH_DEFINES
 #include "sine.h"
-#include "math.h"
+#include <math.h>
 
 Sine::Sine(float frequency) {
   // initialize members

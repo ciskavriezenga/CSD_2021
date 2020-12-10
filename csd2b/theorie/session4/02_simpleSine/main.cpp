@@ -1,7 +1,8 @@
+#define _USE_MATH_DEFINES
 #include <iostream>
 #include <thread>
 #include "jack_module.h"
-#include "math.h"
+#include <math.h>
 
 /*
  * NOTE: jack2 needs to be installed
@@ -19,7 +20,7 @@ int main(int argc,char **argv)
   JackModule jack;
 
   // init the jack, use program name as JACK client name
-  jack.init(argv[0]);
+  jack.init("example.exe");
   double samplerate = jack.getSamplerate();
 
   //assign a function to the JackModule::onProces
