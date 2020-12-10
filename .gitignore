@@ -132,6 +132,10 @@ dmypy.json
 *.Rhistory
 
 
+
+# Cpp
+*.o
+
 # Mac OS stuff #
 ################
 
