@@ -11,7 +11,7 @@ class Sine : public Oscillator {
 public:
   Sine();
   ~Sine();
-  // overload base class method
+  // override base class method
   void calc();
 
 };

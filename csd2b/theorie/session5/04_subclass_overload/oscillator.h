@@ -11,7 +11,7 @@ public:
   Oscillator();
   ~Oscillator();
   void tick();
-  void calc();
+  virtual void calc();
 
 
 };
