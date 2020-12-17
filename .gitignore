@@ -132,7 +132,7 @@ dmypy.json
 *.Rhistory
 
 
-
+*example
 # Cpp
 *.o
 
